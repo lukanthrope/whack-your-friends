@@ -1,0 +1,147 @@
+.btn {
+	background-color: darkgrey;
+	border-radius: 3%;
+	border: none;
+	padding: 10px 20px 10px 20px;
+	margin-left: 1px;
+	margin-right: 1px;
+	outline: none;
+	font-size: 1.1em;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.btn:active {
+	outline: none;
+	background-color: grey;
+	border: none;
+}
+
+.container {
+	width: 450px;
+	margin: auto;
+	margin-top: 50px;
+	font-size: 3em;
+	display: grid;
+	justify-self: center; 
+	justify-items: center;
+  grid-template-columns: 155px 155px 150px;
+  grid-template-rows: 140px 140px 140px;
+}
+
+.hole {
+	background-color: black;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+
+.eboss {
+	height: 68px;
+	margin-top: 14px;
+	width: 68px;
+}
+
+.first {
+	margin-top: -8px;
+	margin-right: 15px; 	
+}
+
+.second {
+	margin-top: 5px;
+	margin-left: 3px; 	
+}
+
+.third {
+	margin-top: -15px;
+	margin-right: -5px; 	
+}
+
+.fourth {
+	margin-top: 5px;
+	margin-right: 15px; 	
+}
+
+@media screen and (max-device-width: 570px) {
+	.hole {
+		width: 80px;
+		height: 80px;
+	}
+
+	.eboss {
+		height: 60px;
+		width: 60px;
+		margin-top: 14px;
+	}
+
+	.container {
+	  grid-template-columns: 150px 140px 155px;
+	  grid-template-rows: 100px 100px 105px;
+	}
+}
+
+@media screen and (min-device-width: 701px) {
+	.hole {
+		width: 100px;
+		height: 100px;
+	}
+
+	.eboss {
+		height: 70px;
+		width: 70px;
+		margin-top: 14px;
+	}
+
+	.container {
+	  grid-template-columns: 145px 190px 190px;
+	  grid-template-rows: 150px 150px 150px;
+	}
+}
+
+@media screen and (max-device-height: 380px) and (min-device-width: 620px) {
+	.container {
+		margin-bottom: 10px;
+	  grid-template-rows: 130px 130px 130px;
+	}
+}
+
+@media screen and (min-device-width: 900px) {
+	.hole {
+		width: 140px;
+		height: 140px;
+	}
+
+	.eboss {
+		height: 100px;
+		width: 100px;
+		margin-top: 14px;
+	}
+
+	.container {
+		margin-left: 120px;
+		margin-top: 100px;
+		justify-items: end;
+	  grid-template-columns: 150px 300px 300px;
+	  grid-template-rows: 300px 300px 300px;
+	}
+}
+
+@media screen and (min-device-width: 1200px) {
+	.hole {
+		width: 180px;
+		height: 180px;
+	}
+
+	.eboss {
+		height: 130px;
+		width: 130px;
+		margin-top: 14px;
+	}
+
+	.container {
+		margin-left: 120px;
+		margin-top: 100px;
+		justify-items: end;
+	  grid-template-columns: 250px 400px 400px;
+	  grid-template-rows: 300px 300px 300px;
+	}
+}
