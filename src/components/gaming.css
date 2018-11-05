@@ -16,14 +16,6 @@
 	border: none;
 }
 
-.showed {
-	display: block;
-}
-
-.hidden {
-	display: none;
-}
-
 .container {
 	width: 450px;
 	margin: auto;
@@ -41,14 +33,12 @@
 	width: 90px;
 	height: 90px;
 	border-radius: 50%;
-	z-index: 3;
 }
 
 .eboss {
 	height: 68px;
 	margin-top: 14px;
 	width: 68px;
-	border-radius: 50%;
 }
 
 .first {
