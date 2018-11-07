@@ -9,55 +9,98 @@ class Gaming extends Component {
 		super(props);
 		this.state = {
 			time: 60,
-			score: 0
+			score: 0,
+			holes: {
+				first: 'none',
+				second: 'none',
+				third: 'none',
+				fourth: 'none',
+				fifth: 'none',
+				sixth: 'none',
+			}
 		};
 
-		this.score = 0;
-
+		this.showHide = this.showHide.bind(this);
 		this.punch = this.punch.bind(this);
 		this.toMenu = this.toMenu.bind(this);
 	}
 
 	componentDidMount() {
-		if (this.state.time === 0) {
-			this.toMenu();
-		}
 		this.timer = setInterval(
 			() => this.countTime()
 		, 1000);
+		this.sh = setInterval(this.showHide, 1000);
 	}
 
 	componentWillUnmount() {
 		clearInterval(this.timer);
+		clearInterval(this.sh);
 	}
 
 	countTime() {
 		let t = --this.state.time;
-		this.setState({time: t});
 
-		if (t === 0) {
+		if (t === 1) {
 			this.toMenu();
+		} else {
+		  this.setState({ time: t });
 		}
 	}
 
 	toMenu() {
-		ReactDOM.render (
+		ReactDOM.render(
 				<Start />, document.getElementById('root')
 		);
+	}
+
+	showHide() {
+		const min = 0;
+	  const max = 5;
+	  const { holes } = this.state;
+	  let rand = Math.floor(Math.random() * (max - min + 1) + min);
+	  Object.keys(holes).map((key, index) => {
+	  	if (index === rand) {
+	  		holes[key] = 'block';
+	  	}
+	  });
+	  console.log(rand);
+	  this.setState({ holes });
+	  setTimeout(() => {
+		  Object.keys(holes).map((key, index) => {
+		  	if (index === rand) {
+		  		holes[key] = 'none';
+		  	}
+		  });
+	  	this.setState({ holes });
+	  }, 1200);
 	}
 
 	punch(event) {
 		let currentScore = this.state.score;
 		event.preventDefault();
-		console.log(event.currentTarget.className);
+		const currentKey = event.currentTarget.dataset.key; 
 
-		this.setState({score: currentScore});
+		const { holes } = this.state;
+		if (holes[currentKey] !== 'none') {
+			currentScore++;
+		} else {
+			currentScore--;
+		}
+		holes[currentKey] = 'none';
+
+		this.setState({ score: currentScore < 0 ? 0 : currentScore, holes });
 	}
 
-	miss() {
-		let currentScore = this.state.score;
-		currentScore--;
-		this.setState({score: currentScore});	
+	renderHoles () {
+		const holes = this.state.holes;
+		return Object.keys(holes).map(key => {
+			return (
+				<div key={key} className={`hole ${key}`} onClick={this.punch} data-key={key}>
+	      	<img src={face} className={`eboss ${holes[key] === 'none' ? 'hidden' : 'block'}`} />
+	    	</div>
+	  	)
+		})
+		
 	}
 
   render() {
@@ -66,29 +109,10 @@ class Gaming extends Component {
     		<button className="btn change">change</button>
     		<button className="btn changeAll">change all</button>
     		<button className="btn menu" onClick={this.toMenu}>menu</button>
-
     		<h2 className="counter stat sound">{this.state.time}</h2>
-    		<h2 className="counter stat score">Score: {this.score}</h2>
-
+    		<h2 className="counter stat score">Score: {this.state.score}</h2>
 	      <div className="container">
-	        <div className="hole first" onClick={() => this.score--}>
-	        	<img src={face} onClick={() => this.score + 2} className="eboss"/>
-	        </div>
-	        <div className="hole second" onClick={this.punch}>
-	        	<img src={face} onClick={this.punch} className="eboss"/>
-	        </div>
-	        <div className="hole third" onClick={this.punch}>
-	        	<img src={face} onClick={this.punch} className="eboss"/>
-	        </div>
-	        <div className="hole fourth" onClick={this.punch}>
-	        	<img src={face} onClick={this.punch} className="eboss"/>
-	        </div>
-	        <div className="hole fifth" onClick={this.punch}>
-	        	<img src={face} onClick={this.punch} className="eboss"/>
-	        </div>
-	        <div className="hole sixth" onClick={this.punch}>
-	        	<img src={face} onClick={this.punch} className="eboss"/>
-	        </div>
+	        {this.renderHoles()}
 	      </div>
 	    </div>
     );
