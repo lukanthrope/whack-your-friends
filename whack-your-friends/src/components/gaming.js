@@ -34,7 +34,7 @@ class Gaming extends Component {
 
 	componentWillUnmount() {
 		clearInterval(this.timer);
-		clearTimeout(this.sh);
+		clearInterval(this.sh);
 	}
 
 	countTime() {
