@@ -6,12 +6,22 @@ body {
   height: 100%;
   font-family: "Comic Sans MS", cursive, sans-serif;
   overflow: hidden;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 h1 {
-	color: red;
-	font-size: 2em;
+	color: green;
+	font-size: 2.6em;
 	padding-top: 8%;
+}
+
+.timesup {
+	padding-top: -5%;
+}
+
+.firstOne, .secondOne {
+	font-size: 1.1em;
+	padding-left: 30px;
 }
 
 .stat {
@@ -22,7 +32,6 @@ h1 {
 }
 
 .stat:active {
-	font-size: 1.5em;
 	text-shadow: 0px 0px 10px blue; 
 }
 
@@ -39,7 +48,11 @@ h1 {
 	color: purple;
 	font-size: 3.2em;
 	
-	margin-top: 16%;
+	margin-top: 13%;
+}
+
+.replay {
+	margin-top: 0%;
 }
 
 .play:hover {

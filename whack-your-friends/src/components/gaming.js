@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import face from './fac.png';
-import Start from './start';
+import Ending from './ending';
 
 class Gaming extends Component {
 
@@ -20,6 +20,8 @@ class Gaming extends Component {
 			}
 		};
 
+		this.interval = 1000;
+
 		this.showHide = this.showHide.bind(this);
 		this.punch = this.punch.bind(this);
 		this.toMenu = this.toMenu.bind(this);
@@ -29,7 +31,7 @@ class Gaming extends Component {
 		this.timer = setInterval(
 			() => this.countTime()
 		, 1000);
-		this.sh = setInterval(this.showHide, 1000);
+		this.sh = setInterval(this.showHide, 900);
 	}
 
 	componentWillUnmount() {
@@ -38,7 +40,7 @@ class Gaming extends Component {
 	}
 
 	countTime() {
-		let t = --this.state.time;
+		let t = this.state.time - 1;
 
 		if (t === 1) {
 			this.toMenu();
@@ -48,8 +50,11 @@ class Gaming extends Component {
 	}
 
 	toMenu() {
+		const hightScore = localStorage.getItem('hightScore');
+		if (this.state.score > hightScore)
+			localStorage.setItem('hightScore', this.state.score);
 		ReactDOM.render(
-				<Start />, document.getElementById('root')
+				<Ending score={this.state.score} />, document.getElementById('root')
 		);
 	}
 
@@ -57,13 +62,25 @@ class Gaming extends Component {
 		const min = 0;
 	  const max = 5;
 	  const { holes } = this.state;
+	  
 	  let rand = Math.floor(Math.random() * (max - min + 1) + min);
 	  Object.keys(holes).map((key, index) => {
 	  	if (index === rand) {
 	  		holes[key] = 'block';
 	  	}
 	  });
-	  console.log(rand);
+
+	  if (this.state.time === 20)
+	  	this.interval -= 100;
+	  else if (this.state.time === 30)
+	  	this.interval -= 100;
+	  else if (this.state.time === 37)
+	  	this.interval -= 100;
+	  else if (this.state.time === 48)
+	  	this.interval -= 100;
+
+	  console.log(this.interval);
+	  
 	  this.setState({ holes });
 	  setTimeout(() => {
 		  Object.keys(holes).map((key, index) => {
@@ -72,7 +89,7 @@ class Gaming extends Component {
 		  	}
 		  });
 	  	this.setState({ holes });
-	  }, 1200);
+	  }, this.interval);
 	}
 
 	punch(event) {
@@ -106,8 +123,6 @@ class Gaming extends Component {
   render() {
     return (
     	<div className="outer-container">
-    		<button className="btn change">change</button>
-    		<button className="btn changeAll">change all</button>
     		<button className="btn menu" onClick={this.toMenu}>menu</button>
     		<h2 className="counter stat sound">{this.state.time}</h2>
     		<h2 className="counter stat score">Score: {this.state.score}</h2>
