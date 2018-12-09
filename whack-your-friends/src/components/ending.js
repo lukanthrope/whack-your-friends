@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import face from './fac.png';
 import Gaming from './gaming';
+import Open from './open';
 
 class Ending extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			sound: 'OFF'
+			sound: 'OFF',
+			showCropper: false,
+			style: {
+				'display': 'none'
+			}
 		};
 
 		this.handleClick = this.handleClick.bind(this);
+		this.open = this.open.bind(this);
 		this.play = this.play.bind(this);
 	}
 
@@ -20,18 +27,27 @@ class Ending extends Component {
   		let sound = localStorage.getItem('Sound');
   		if (sound == null)
 				sound = 'ON';
-			this.setState({sound: sound});
+			this.setState({sound: sound});	
+	}
 
-			localStorage.setItem('Sound', this.state.sound);	
+	open() {
+		this.setState({
+			style: {
+				'display': this.state.style.display === 'block' ? 'none' : 'block'
+			}
+		});
 	}
 
 	handleClick() {
-		if (this.state.sound === 'OFF')
-			this.setState({sound: 'ON'})
-		else
+		let sound = localStorage.getItem('Sound');
+		if (sound === 'ON') {
 			this.setState({sound: 'OFF'});
-
-		localStorage.setItem('Sound', this.state.sound);
+			localStorage.setItem('Sound', 'OFF');
+		}
+		else {
+			this.setState({sound: 'ON'});
+			localStorage.setItem('Sound', 'ON');
+		}
 	}
 
 	Scoring() {
@@ -58,8 +74,14 @@ class Ending extends Component {
   render() {
     return (
       <div className="App">
+      	<Open 
+      		style={this.state.style}
+      		click={this.open}
+      		/>
+      	<button className="btn menu" onClick={this.open}>change enemies</button>
+
       	<h2 className="stat sound" onClick={this.handleClick}>Sound: {this.state.sound}</h2>
-      	<h1 className="timesup">Time's up</h1>
+      	<h1 className="timesup">{this.props.phrase}</h1>
       	<h2>	
       		<span className="firstOne">score: {this.props.score}</span>
       		<span className="secondOne">HightScore: {this.state.hightScore}</span>

@@ -10,6 +10,7 @@ class Gaming extends Component {
 		this.state = {
 			time: 60,
 			score: 0,
+			face: null,
 			holes: {
 				first: 'none',
 				second: 'none',
@@ -20,7 +21,7 @@ class Gaming extends Component {
 			}
 		};
 
-		this.interval = 1000;
+		this.interval = 900;
 
 		this.showHide = this.showHide.bind(this);
 		this.punch = this.punch.bind(this);
@@ -32,6 +33,12 @@ class Gaming extends Component {
 			() => this.countTime()
 		, 1000);
 		this.sh = setInterval(this.showHide, 900);
+
+		let thisFace = localStorage.getItem('face');
+		if(thisFace == null) 
+			this.setState({face: face});
+		else
+			this.setState({face: thisFace})
 	}
 
 	componentWillUnmount() {
@@ -43,18 +50,19 @@ class Gaming extends Component {
 		let t = this.state.time - 1;
 
 		if (t === 1) {
-			this.toMenu();
+			this.toMenu('Time\'s up!');
 		} else {
 		  this.setState({ time: t });
 		}
 	}
 
-	toMenu() {
-		const hightScore = localStorage.getItem('hightScore');
-		if (this.state.score > hightScore)
-			localStorage.setItem('hightScore', this.state.score);
+	toMenu(phrase) {
 		ReactDOM.render(
-				<Ending score={this.state.score} />, document.getElementById('root')
+				<Ending
+					score={this.state.score}
+					phrase={phrase}
+					 />
+				, document.getElementById('root')
 		);
 	}
 
@@ -105,6 +113,8 @@ class Gaming extends Component {
 		}
 		holes[currentKey] = 'none';
 
+		console.log(this.state.score);
+
 		this.setState({ score: currentScore < 0 ? 0 : currentScore, holes });
 	}
 
@@ -113,7 +123,7 @@ class Gaming extends Component {
 		return Object.keys(holes).map(key => {
 			return (
 				<div key={key} className={`hole ${key}`} onClick={this.punch} data-key={key}>
-	      	<img src={face} className={`eboss ${holes[key] === 'none' ? 'hidden' : 'block'}`} />
+	      	<img src={this.state.face} className={`eboss ${holes[key] === 'none' ? 'hidden' : 'block'}`} />
 	    	</div>
 	  	)
 		})
@@ -123,7 +133,7 @@ class Gaming extends Component {
   render() {
     return (
     	<div className="outer-container">
-    		<button className="btn menu" onClick={this.toMenu}>menu</button>
+    		<button className="btn menu" onClick={() => this.toMenu('Alright')}>menu</button>
     		<h2 className="counter stat sound">{this.state.time}</h2>
     		<h2 className="counter stat score">Score: {this.state.score}</h2>
 	      <div className="container">
