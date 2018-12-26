@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import face from './fac.png';
 import Open from './open';
 import Gaming from './gaming';
 
@@ -11,7 +10,6 @@ class Start extends Component {
 		this.state = {
 			sound: 'ON',
 			hightScore: 0,
-			picture: face,
 			showCropper: false,
 			style: {
 				'display': 'none'

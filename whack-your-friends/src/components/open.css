@@ -11,11 +11,14 @@
 	top: 0;
 	bottom: 0;
 
+	padding-top: 10px;
+
 	width: 95%;
 	height: 90%;
 	background-color: lightgrey;
 	z-index: 5;
 	border-radius: 20px;
+
 }
 
 .close {
@@ -26,9 +29,56 @@
 	font-size: 1.8em;
 }
 
+
+
+.left, .right {
+	margin-top: 3%;
+	display: block;
+
+}
+
 .imgPreview {
 	border-radius: 50%;
-	width: 100px;
-	height: 100px;
+	width: 300px;
+	height: 200px;
 	margin: 0 auto;
+	margin-top: 3%;
+	display: inline-block;
+}
+
+.cropParent {
+	width: 180px;
+}
+
+.imageCrop {
+	margin-right: 25px;
+	background-color: lightgrey;
+	float: left;
+	max-width: 100%;
+}
+
+canvas {
+	width: 30%;
+	height: 42%;
+	border-radius: 50%;
+	margin-left: 25px;
+	float: right;
+}
+
+.save {
+	margin-top: 10px;
+}
+
+.fileInput {
+	color: lightgrey;
+}
+
+.fileInputDefault {
+	color: black;
+}
+
+#zoomer {
+  display: block;
+  width: 50%;
+  margin: 2rem auto;
 }

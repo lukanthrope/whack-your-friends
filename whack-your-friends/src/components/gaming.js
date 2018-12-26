@@ -35,10 +35,14 @@ class Gaming extends Component {
 		this.sh = setInterval(this.showHide, 900);
 
 		let thisFace = localStorage.getItem('face');
-		if(thisFace == null) 
+			console.log(thisFace);
+		if(thisFace == null || thisFace == 'none') {
 			this.setState({face: face});
-		else
-			this.setState({face: thisFace})
+		}
+		else {
+			this.setState({face: thisFace});
+		}
+
 	}
 
 	componentWillUnmount() {

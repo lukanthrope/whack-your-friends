@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import face from './fac.png';
 import Gaming from './gaming';
 import Open from './open';
 
