@@ -77,7 +77,7 @@ class Start extends Component {
       	<h2 className="stat sound" onClick={this.handleClick}>Sound: {this.state.sound}</h2>
       	<h2 className="stat score">HightScore: {this.state.hightScore}</h2>
 
-      	<h1>Whack your friends!</h1> 
+      	<h1>Whack a friend!</h1> 
       	
       	<h2 className="play" onClick={this.play}>play</h2>
       </div>
