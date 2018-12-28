@@ -4,7 +4,7 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 function image64toCanvasRef (canvasRef, image64, pixelCrop) {
-  const canvas = canvasRef; // document.createElement('canvas');
+  const canvas = canvasRef; 
   canvas.width = pixelCrop.width || 200;
   canvas.height = pixelCrop.height || 200;
   const ctx = canvas.getContext('2d');
@@ -43,6 +43,7 @@ class Open extends Component {
 			}
 		};	
 
+		this.showButton = false;
 		this.useDefaultImage = this.useDefaultImage.bind(this);
 	}
 
@@ -99,20 +100,42 @@ class Open extends Component {
 		const base64Canvas = canvasRef.toDataURL('image/' + fileExtension);
 		console.log(base64Canvas);
 		
-		if (base64Canvas.length < 4999) {
-			localStorage.setItem('face', imagePreviewUrl);
-			this.props.click();	
-		}	else {
-			localStorage.setItem('face', base64Canvas);
-			this.props.click();
-		}
+		localStorage.setItem('face', base64Canvas);
+		this.props.click();
 	}	
  
+	saveImageWithoutCrop = (event) => {
+		event.preventDefault();
+		const {imagePreviewUrl} = this.state;
+		localStorage.setItem('face', imagePreviewUrl);
+		this.props.click();
+	}
+
+	buttonShower = () => {
+	  if (this.showButton) {
+			return (
+				<div className="buttons">
+					<button onClick={this.saveImageWithoutCrop} className="justSave cropNsave">
+					  save
+					</button>
+					<button onClick={this.saveImage} className="cropNsave">
+					  crop&save
+					</button>
+				</div>
+			)
+		} else {
+			return (
+			  <h1 className="previewH1">Choose and upload an image</h1>
+			)
+		}
+	} 
+
   render() {
   	let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
       $imagePreview = imagePreviewUrl;
+      this.showButton = true;
     }
 
     return (
@@ -150,10 +173,10 @@ class Open extends Component {
 					}
 
 					<br />
-	        <button onClick={this.saveImage} className="save">
-	        	crop&save
-	        </button>
 
+					{
+						this.buttonShower()
+		      }  
       </div>
     );
   }

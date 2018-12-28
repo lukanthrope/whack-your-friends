@@ -29,8 +29,6 @@
 	font-size: 1.8em;
 }
 
-
-
 .left, .right {
 	margin-top: 3%;
 	display: block;
@@ -55,6 +53,7 @@
 	background-color: lightgrey;
 	float: left;
 	max-width: 100%;
+	max-height: 80%;
 }
 
 canvas {
@@ -65,8 +64,19 @@ canvas {
 	float: right;
 }
 
-.save {
-	margin-top: 10px;
+.cropNsave {
+	margin-top: 25px;
+	border: none;
+	padding: 8px;
+	font-weight: 600;
+	border-radius: 10%;
+	background-color: rgb(205,133,63);
+}
+
+.justSave {
+	padding-right: 28px;
+	padding-left: 28px;
+	margin-right: 25px;
 }
 
 .fileInput {
@@ -75,6 +85,14 @@ canvas {
 
 .fileInputDefault {
 	color: black;
+}
+
+.previewH1 {
+	color: black;
+	font-size: 1.4em;
+	font-family: Sans-serif;
+	font-weight: 300;
+	margin-top: 8%;
 }
 
 #zoomer {
