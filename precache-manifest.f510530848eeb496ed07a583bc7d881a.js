@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/whack-your-friends/static/js/runtime~main.1c72512e.js"
   },
   {
-    "revision": "7b96bebd068299ae095f",
-    "url": "/whack-your-friends/static/js/main.7b96bebd.chunk.js"
+    "revision": "52d7fc972640a4a5df1c",
+    "url": "/whack-your-friends/static/js/main.52d7fc97.chunk.js"
   },
   {
     "revision": "3808f1a345096d2d7d31",
     "url": "/whack-your-friends/static/js/1.3808f1a3.chunk.js"
   },
   {
-    "revision": "7b96bebd068299ae095f",
+    "revision": "52d7fc972640a4a5df1c",
     "url": "/whack-your-friends/static/css/main.9945a076.chunk.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/whack-your-friends/static/css/1.da61ce61.chunk.css"
   },
   {
-    "revision": "c533fc2cbf95b875ae95f8e92f706b76",
+    "revision": "022f428a4d25188b7df138febb251aa4",
     "url": "/whack-your-friends/index.html"
   }
 ];
