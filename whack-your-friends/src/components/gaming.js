@@ -29,7 +29,7 @@ class Gaming extends Component {
 		this.playPunchSound = this.playPunchSound.bind(this);
 
 		this.showHide = this.showHide.bind(this);
-		this.interval = 900;
+		this.interval = 1100;
 		this.punch = this.punch.bind(this);
 		this.toMenu = this.toMenu.bind(this);
 	}
@@ -93,12 +93,12 @@ class Gaming extends Component {
 	  });
 
 	  if (this.state.time === 20)
-	  	this.interval -= 100;
+	  	this.interval -= 20;
 	  else if (this.state.time === 30)
-	  	this.interval -= 100;
+	  	this.interval -= 50;
 	  else if (this.state.time === 37)
 	  	this.interval -= 100;
-	  else if (this.state.time === 48)
+	  else if (this.state.time === 47)
 	  	this.interval -= 100;
 	  else if (this.state.time === 55)
 	  	this.interval -= 100;
