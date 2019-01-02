@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/whack-your-friends/precache-manifest.77607c28e30cd8c2b619114c0c3c927f.js"
+  "/whack-your-friends/precache-manifest.f6a25bd98b653cbf5da4b3fd8cc8dacb.js"
 );
 
 workbox.clientsClaim();
