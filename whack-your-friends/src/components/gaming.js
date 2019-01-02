@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import face from './fac.png';
 import Ending from './ending';
+import clickSound from './audio/click.mp3';
+import punchSound from './audio/punch.mp3';
 
 class Gaming extends Component {
 
@@ -21,9 +23,13 @@ class Gaming extends Component {
 			}
 		};
 
-		this.interval = 900;
+		this.s = new Audio(clickSound);
+		this.p = new Audio(punchSound);
+		this.playClickSound = this.playClickSound.bind(this);
+		this.playPunchSound = this.playPunchSound.bind(this);
 
 		this.showHide = this.showHide.bind(this);
+		this.interval = 900;
 		this.punch = this.punch.bind(this);
 		this.toMenu = this.toMenu.bind(this);
 	}
@@ -32,10 +38,11 @@ class Gaming extends Component {
 		this.timer = setInterval(
 			() => this.countTime()
 		, 1000);
-		this.sh = setInterval(this.showHide, 900);
+		this.sh = setInterval(this.showHide, 500);
 
 		let thisFace = localStorage.getItem('face');
-			console.log(thisFace);
+		let sound = localStorage.getItem('Sound');
+
 		if(thisFace == null || thisFace == 'none') {
 			this.setState({face: face});
 		}
@@ -43,6 +50,9 @@ class Gaming extends Component {
 			this.setState({face: thisFace});
 		}
 
+		this.setState({
+			sound: sound
+		});
 	}
 
 	componentWillUnmount() {
@@ -53,7 +63,7 @@ class Gaming extends Component {
 	countTime() {
 		let t = this.state.time - 1;
 
-		if (t === 1) {
+		if (t === 0) {
 			this.toMenu('Time\'s up!');
 		} else {
 		  this.setState({ time: t });
@@ -90,8 +100,8 @@ class Gaming extends Component {
 	  	this.interval -= 100;
 	  else if (this.state.time === 48)
 	  	this.interval -= 100;
-
-	  console.log(this.interval);
+	  else if (this.state.time === 55)
+	  	this.interval -= 100;
 	  
 	  this.setState({ holes });
 	  setTimeout(() => {
@@ -117,8 +127,6 @@ class Gaming extends Component {
 		}
 		holes[currentKey] = 'none';
 
-		console.log(this.state.score);
-
 		this.setState({ score: currentScore < 0 ? 0 : currentScore, holes });
 	}
 
@@ -127,19 +135,49 @@ class Gaming extends Component {
 		return Object.keys(holes).map(key => {
 			return (
 				<div key={key} className={`hole ${key}`} onClick={this.punch} data-key={key}>
-	      	<img src={this.state.face} className={`eboss ${holes[key] === 'none' ? 'hidden' : 'block'}`} />
+	      	<img 
+	      		src={this.state.face}
+	      		className={`eboss ${holes[key] === 'none' ? 'hidden' : 'block'}`}
+	      		onClick={this.playPunchSound}
+	      		/>
 	    	</div>
 	  	)
 		})
 		
 	}
 
+	playClickSound() {
+		if (this.state.sound === 'ON') {
+			const soundPlay = this.s.play();
+			soundPlay.then(function() {
+
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}
+	}
+
+	playPunchSound() {
+		if (this.state.sound === 'ON') {
+			const soundPlay = this.p.play();
+			soundPlay.then(function() {
+
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}		
+	}
+
   render() {
     return (
     	<div className="outer-container">
-    		<button className="btn menu" onClick={() => this.toMenu('Alright')}>menu</button>
+    		<button className="btn menu" onClick={() => {this.toMenu('Alright'); this.playClickSound()}}>
+    			menu
+    		</button>
+
     		<h2 className="counter stat sound">{this.state.time}</h2>
     		<h2 className="counter stat score">Score: {this.state.score}</h2>
+	      
 	      <div className="container">
 	        {this.renderHoles()}
 	      </div>

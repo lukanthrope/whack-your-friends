@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Gaming from './gaming';
 import Open from './open';
+import clickSound from './audio/click.mp3'; 
 
 class Ending extends Component {
 
@@ -15,6 +16,8 @@ class Ending extends Component {
 			}
 		};
 
+		this.s = new Audio(clickSound);
+		this.playClickSound = this.playClickSound.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.open = this.open.bind(this);
 		this.play = this.play.bind(this);
@@ -35,6 +38,7 @@ class Ending extends Component {
 				'display': this.state.style.display === 'block' ? 'none' : 'block'
 			}
 		});
+		this.playClickSound();
 	}
 
 	handleClick() {
@@ -70,6 +74,17 @@ class Ending extends Component {
 			);
 	}
 
+	playClickSound() {
+		if (this.state.sound === 'ON') {
+			const soundPlay = this.s.play();
+			soundPlay.then(function() {
+
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}
+	}
+
   render() {
     return (
       <div className="App">
@@ -77,15 +92,33 @@ class Ending extends Component {
       		style={this.state.style}
       		click={this.open}
       		/>
-      	<button className="btn menu" onClick={this.open}>change enemies</button>
+      	
+      	<button 
+      		className="btn menu"
+      		onClick={() => {this.open(); this.playClickSound()}}
+      		>
+      		change enemies
+      	</button>
 
-      	<h2 className="stat sound" onClick={this.handleClick}>Sound: {this.state.sound}</h2>
+      	<h2
+      		className="stat sound"
+      		onClick={() => {this.handleClick(); this.playClickSound()}}
+      		>
+      		Sound: {this.state.sound}
+      	</h2>
+      	
       	<h1 className="timesup">{this.props.phrase}</h1>
       	<h2>	
       		<span className="firstOne">score: {this.props.score}</span>
       		<span className="secondOne">HightScore: {this.state.hightScore}</span>
       	</h2> 
-      	<h2 className="play replay" onClick={this.play}>replay</h2>	 
+
+      	<h2
+      		className="play replay"
+      		onClick={() => {this.play(); this.playClickSound()}}
+      		>
+      		replay
+      	</h2>	 
       </div>
     );
   }

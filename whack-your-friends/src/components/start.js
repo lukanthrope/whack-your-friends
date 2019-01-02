@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Open from './open';
 import Gaming from './gaming';
+import clickSound from './audio/click.mp3'; 
 
 class Start extends Component {
 
@@ -16,6 +17,8 @@ class Start extends Component {
 			}
 		};
 
+		this.s = new Audio(clickSound);
+		this.playClickSound = this.playClickSound.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.open = this.open.bind(this);
 		this.play = this.play.bind(this);
@@ -57,12 +60,24 @@ class Start extends Component {
 				'display': this.state.style.display === 'block' ? 'none' : 'block'
 			}
 		});
+		this.playClickSound();
 	}
 
 	play() {
 			ReactDOM.render (
 				<Gaming />, document.getElementById('root')
 			);
+	}
+
+	playClickSound() {
+		if (this.state.sound === 'ON') {
+			const soundPlay = this.s.play();
+			soundPlay.then(function() {
+
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}
 	}
 
   render() {
@@ -72,14 +87,31 @@ class Start extends Component {
       		style={this.state.style}
       		click={this.open}
       		/>
-      	<button className="btn menu" onClick={this.open}>change enemies</button>
+      	<button
+      		className="btn menu"
+      		onClick={() => {this.open(); this.playClickSound()}}
+      		>
+      		change enemies
+      	</button>
       	
-      	<h2 className="stat sound" onClick={this.handleClick}>Sound: {this.state.sound}</h2>
-      	<h2 className="stat score">HightScore: {this.state.hightScore}</h2>
+      	<h2
+      		className="stat sound"
+      		onClick={() => {this.handleClick(); this.playClickSound()}}
+      		>
+      		Sound: {this.state.sound}
+      	</h2>
+      	<h2 className="stat score">
+      		HightScore: {this.state.hightScore}
+      	</h2>
 
       	<h1>Whack a friend!</h1> 
       	
-      	<h2 className="play" onClick={this.play}>play</h2>
+      	<h2
+      		className="play"
+      		onClick={() => {this.play(); this.playClickSound()}}
+      		>
+      		play
+      	</h2>
       </div>
     );
   }

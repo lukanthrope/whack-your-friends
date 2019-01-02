@@ -54,6 +54,7 @@
 	float: left;
 	max-width: 100%;
 	max-height: 80%;
+	margin-top: 10px;
 }
 
 canvas {
@@ -64,7 +65,7 @@ canvas {
 	float: right;
 }
 
-.cropNsave {
+.justSave {
 	margin-top: 25px;
 	border: none;
 	padding: 8px;
@@ -73,18 +74,34 @@ canvas {
 	background-color: rgb(205,133,63);
 }
 
-.justSave {
-	padding-right: 28px;
-	padding-left: 28px;
-	margin-right: 25px;
+.cropNsave {
+	padding-right: 26px;
+	padding-left: 26px;
+	margin-left: 25px;
 }
 
 .fileInput {
 	color: lightgrey;
+	z-index: 1; 
+	display: none;
+}
+
+.fileInputLabel {
+	background: rgb(205,133,63);
+	z-index: 2;
+	text-shadow: none;
+	font-weight: 600;
+	font-size: 0.9em;
+	font-style: bold;
+	font-family: Sans-serif;
+	margin-right: 180px;
+	margin-left: 10px;
+	border-radius: 10%;
+	padding: 8px 18px 7px 18px;
 }
 
 .fileInputDefault {
-	color: black;
+	margin-top: 3px;
 }
 
 .previewH1 {
@@ -99,4 +116,15 @@ canvas {
   display: block;
   width: 50%;
   margin: 2rem auto;
+}
+
+@media screen and (max-device-width: 600px) {
+	.imageCrop {
+		max-width: 1px;
+		max-height: 160px;
+	}
+
+	.little {
+		margin-top: -200px;
+	}
 }

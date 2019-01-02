@@ -69,10 +69,6 @@ class Open extends Component {
 		this.props.click();
   }
 
-  handleImageLoaded = (image) => {
-  	console.log(image);
-  }
-
   handleOnChange = (crop) => {
   	this.setState({ crop });
 	}
@@ -115,10 +111,16 @@ class Open extends Component {
 	  if (this.showButton) {
 			return (
 				<div className="buttons">
-					<button onClick={this.saveImageWithoutCrop} className="justSave cropNsave">
-					  save
+					<button
+						onClick={this.saveImageWithoutCrop}
+						className="justSave little"
+						>
+					  save uncropped
 					</button>
-					<button onClick={this.saveImage} className="cropNsave">
+					<button
+						onClick={this.saveImage}
+						className="cropNsave justSave little"
+						>
 					  crop&save
 					</button>
 				</div>
@@ -141,15 +143,29 @@ class Open extends Component {
     return (
       <div className="imageCropper" style={this.props.style}>
 	      <div className="containerTop">
-	      	<h2 className="close" onClick={this.props.click} close={this.props.close}>X</h2>
+	      	<h2
+	      		className="close"
+	      		onClick={this.props.click}
+	      		close={this.props.close}
+	      		>
+	      		X
+	      	</h2>
 
-	      	<input className="fileInput" 
+	      	<label htmlFor="file-upload" className="fileInputLabel">
+	      		upload image
+	      	</label>
+
+	      	<input
+	      			className="fileInput"
+	      			id="file-upload" 
 	            type="file" 
-	            onChange={(e)=>this._handleImageChange(e)}
+	            size="1"
+	            onChange={(e) => this._handleImageChange(e)}
 	            accept="image/*"
 	            />
 
-					<input className="fileInput fileInputDefault" 
+					<input
+							className="justSave fileInputDefault" 
 	            type="button" 
 	            onClick={this.useDefaultImage}
 	            value="useDefaultImage"
@@ -162,7 +178,6 @@ class Open extends Component {
 								src={$imagePreview}
 								className="imageCrop"	
 								crop={this.state.crop}
-								onImageLoaded={this.handleImageLoaded}
 								onChange={this.handleOnChange}
 								onComplete={this.handleOnComplete}
 								/>
