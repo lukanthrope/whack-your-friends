@@ -98,8 +98,6 @@ class Gaming extends Component {
 	  	this.interval -= 25;
 	  else if (this.state.time === 37)
 	  	this.interval -= 100;
-	  else if (this.state.time === 45)
-	  	this.interval -= 50;
 	  else if (this.state.time === 52)
 	  	this.interval -= 100;
 	  
