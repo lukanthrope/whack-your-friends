@@ -93,11 +93,11 @@ class Gaming extends Component {
 	  });
 
 	  if (this.state.time === 20)
-	  	this.interval -= 20;
+	  	this.interval -= 50;
 	  else if (this.state.time === 36)
 	  	this.interval -= 50;
 	  else if (this.state.time === 50)
-	  	this.interval -= 50;
+	  	this.interval -= 100;
 	  
 	  this.setState({ holes });
 	  setTimeout(() => {
