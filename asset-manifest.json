@@ -1,7 +1,7 @@
 {
   "main.css": "/whack-your-friends/static/css/main.9945a076.chunk.css",
-  "main.js": "/whack-your-friends/static/js/main.1d5f8e40.chunk.js",
-  "main.js.map": "/whack-your-friends/static/js/main.1d5f8e40.chunk.js.map",
+  "main.js": "/whack-your-friends/static/js/main.56088160.chunk.js",
+  "main.js.map": "/whack-your-friends/static/js/main.56088160.chunk.js.map",
   "static/css/1.da61ce61.chunk.css": "/whack-your-friends/static/css/1.da61ce61.chunk.css",
   "static/js/1.3808f1a3.chunk.js": "/whack-your-friends/static/js/1.3808f1a3.chunk.js",
   "static/js/1.3808f1a3.chunk.js.map": "/whack-your-friends/static/js/1.3808f1a3.chunk.js.map",
@@ -12,6 +12,6 @@
   "static/media/punch.mp3": "/whack-your-friends/static/media/punch.c71000d7.mp3",
   "static/css/1.da61ce61.chunk.css.map": "/whack-your-friends/static/css/1.da61ce61.chunk.css.map",
   "index.html": "/whack-your-friends/index.html",
-  "precache-manifest.db96e35cb9eac2fda22ae27034985cce.js": "/whack-your-friends/precache-manifest.db96e35cb9eac2fda22ae27034985cce.js",
+  "precache-manifest.0a5fd0c7ace176263722665f29068637.js": "/whack-your-friends/precache-manifest.0a5fd0c7ace176263722665f29068637.js",
   "service-worker.js": "/whack-your-friends/service-worker.js"
 }
