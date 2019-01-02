@@ -1,17 +1,17 @@
 {
   "main.css": "/whack-your-friends/static/css/main.9945a076.chunk.css",
-  "main.js": "/whack-your-friends/static/js/main.52bb2a29.chunk.js",
-  "main.js.map": "/whack-your-friends/static/js/main.52bb2a29.chunk.js.map",
+  "main.js": "/whack-your-friends/static/js/main.5c04d3c2.chunk.js",
+  "main.js.map": "/whack-your-friends/static/js/main.5c04d3c2.chunk.js.map",
   "static/css/1.da61ce61.chunk.css": "/whack-your-friends/static/css/1.da61ce61.chunk.css",
   "static/js/1.3808f1a3.chunk.js": "/whack-your-friends/static/js/1.3808f1a3.chunk.js",
   "static/js/1.3808f1a3.chunk.js.map": "/whack-your-friends/static/js/1.3808f1a3.chunk.js.map",
   "runtime~main.js": "/whack-your-friends/static/js/runtime~main.1c72512e.js",
   "runtime~main.js.map": "/whack-your-friends/static/js/runtime~main.1c72512e.js.map",
-  "static/css/1.da61ce61.chunk.css.map": "/whack-your-friends/static/css/1.da61ce61.chunk.css.map",
+  "static/css/main.9945a076.chunk.css.map": "/whack-your-friends/static/css/main.9945a076.chunk.css.map",
   "static/media/click.mp3": "/whack-your-friends/static/media/click.36936432.mp3",
   "static/media/punch.mp3": "/whack-your-friends/static/media/punch.c71000d7.mp3",
-  "static/css/main.9945a076.chunk.css.map": "/whack-your-friends/static/css/main.9945a076.chunk.css.map",
+  "static/css/1.da61ce61.chunk.css.map": "/whack-your-friends/static/css/1.da61ce61.chunk.css.map",
   "index.html": "/whack-your-friends/index.html",
-  "precache-manifest.c6b3a0e2dc3c978a5a09c5343006f177.js": "/whack-your-friends/precache-manifest.c6b3a0e2dc3c978a5a09c5343006f177.js",
+  "precache-manifest.609d35dd47da0ab2cba2786ec5a4c7f5.js": "/whack-your-friends/precache-manifest.609d35dd47da0ab2cba2786ec5a4c7f5.js",
   "service-worker.js": "/whack-your-friends/service-worker.js"
 }
