@@ -29,7 +29,7 @@ class Gaming extends Component {
 		this.playPunchSound = this.playPunchSound.bind(this);
 
 		this.showHide = this.showHide.bind(this);
-		this.interval = 1100;
+		this.interval = 1150;
 		this.punch = this.punch.bind(this);
 		this.toMenu = this.toMenu.bind(this);
 	}
@@ -38,7 +38,7 @@ class Gaming extends Component {
 		this.timer = setInterval(
 			() => this.countTime()
 		, 1000);
-		this.sh = setInterval(this.showHide, 500);
+		this.sh = setInterval(this.showHide, 550);
 
 		let thisFace = localStorage.getItem('face');
 		let sound = localStorage.getItem('Sound');
