@@ -1,17 +1,17 @@
 {
-  "main.css": "/whack-your-friends/static/css/main.9945a076.chunk.css",
-  "main.js": "/whack-your-friends/static/js/main.9090999d.chunk.js",
-  "main.js.map": "/whack-your-friends/static/js/main.9090999d.chunk.js.map",
+  "main.css": "/whack-your-friends/static/css/main.5eacfeec.chunk.css",
+  "main.js": "/whack-your-friends/static/js/main.2dc23591.chunk.js",
+  "main.js.map": "/whack-your-friends/static/js/main.2dc23591.chunk.js.map",
   "static/css/1.da61ce61.chunk.css": "/whack-your-friends/static/css/1.da61ce61.chunk.css",
   "static/js/1.3808f1a3.chunk.js": "/whack-your-friends/static/js/1.3808f1a3.chunk.js",
   "static/js/1.3808f1a3.chunk.js.map": "/whack-your-friends/static/js/1.3808f1a3.chunk.js.map",
   "runtime~main.js": "/whack-your-friends/static/js/runtime~main.1c72512e.js",
   "runtime~main.js.map": "/whack-your-friends/static/js/runtime~main.1c72512e.js.map",
-  "static/css/main.9945a076.chunk.css.map": "/whack-your-friends/static/css/main.9945a076.chunk.css.map",
+  "static/css/main.5eacfeec.chunk.css.map": "/whack-your-friends/static/css/main.5eacfeec.chunk.css.map",
   "static/media/click.mp3": "/whack-your-friends/static/media/click.36936432.mp3",
   "static/media/punch.mp3": "/whack-your-friends/static/media/punch.c71000d7.mp3",
   "static/css/1.da61ce61.chunk.css.map": "/whack-your-friends/static/css/1.da61ce61.chunk.css.map",
   "index.html": "/whack-your-friends/index.html",
-  "precache-manifest.f137a97b63d3099b395070d4a3ccd96d.js": "/whack-your-friends/precache-manifest.f137a97b63d3099b395070d4a3ccd96d.js",
+  "precache-manifest.a65577c3dcd207aa618e53ba306cbdf5.js": "/whack-your-friends/precache-manifest.a65577c3dcd207aa618e53ba306cbdf5.js",
   "service-worker.js": "/whack-your-friends/service-worker.js"
 }
