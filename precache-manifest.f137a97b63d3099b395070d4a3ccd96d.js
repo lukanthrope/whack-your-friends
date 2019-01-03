@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/whack-your-friends/static/css/1.da61ce61.chunk.css"
   },
   {
-    "revision": "5fd2467fb9e8daf3a58df20cf0c487ec",
+    "revision": "833c8c831dd4885e160f44368b934b1c",
     "url": "/whack-your-friends/index.html"
   }
 ];
