@@ -12,23 +12,23 @@ self.__precacheManifest = [
     "url": "/whack-your-friends/static/js/runtime~main.1c72512e.js"
   },
   {
-    "revision": "fd4fc8c5624f94781548",
-    "url": "/whack-your-friends/static/js/main.fd4fc8c5.chunk.js"
+    "revision": "f7be03efd489b96dd4b4",
+    "url": "/whack-your-friends/static/js/main.f7be03ef.chunk.js"
   },
   {
-    "revision": "3808f1a345096d2d7d31",
-    "url": "/whack-your-friends/static/js/1.3808f1a3.chunk.js"
+    "revision": "77da5fbd71dfc541e298",
+    "url": "/whack-your-friends/static/js/1.77da5fbd.chunk.js"
   },
   {
-    "revision": "fd4fc8c5624f94781548",
-    "url": "/whack-your-friends/static/css/main.8fb7b82d.chunk.css"
+    "revision": "f7be03efd489b96dd4b4",
+    "url": "/whack-your-friends/static/css/main.65329157.chunk.css"
   },
   {
-    "revision": "3808f1a345096d2d7d31",
-    "url": "/whack-your-friends/static/css/1.da61ce61.chunk.css"
+    "revision": "77da5fbd71dfc541e298",
+    "url": "/whack-your-friends/static/css/1.4f52ea88.chunk.css"
   },
   {
-    "revision": "91405e666855fbbac3413c341b7bed58",
+    "revision": "f11d26baf4669f4fcbfc7bcb2a903e9f",
     "url": "/whack-your-friends/index.html"
   }
 ];
