@@ -110,7 +110,7 @@ class Ending extends Component {
       	<h1 className="timesup">{this.props.phrase}</h1>
       	<h2>	
       		<span className="firstOne">score: {this.props.score}</span>
-      		<span className="secondOne">HightScore: {this.state.hightScore}</span>
+      		<span className="secondOne">highscore: {this.state.hightScore}</span>
       	</h2> 
 
       	<h2

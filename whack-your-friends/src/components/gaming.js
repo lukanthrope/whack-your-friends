@@ -128,9 +128,13 @@ class Gaming extends Component {
 		this.setState({ score: currentScore < 0 ? 0 : currentScore, holes });
 	}
 
-	renderHoles () {
+	renderHoles (notThis1, notThis2, notThis3) {
 		const holes = this.state.holes;
 		return Object.keys(holes).map(key => {
+			if (key === notThis1 || key === notThis2 || key === notThis3) {
+				return;
+			}
+
 			return (
 				<div key={key} className={`hole ${key}`} onClick={this.punch} data-key={key}>
 	      	<img 
@@ -177,7 +181,12 @@ class Gaming extends Component {
     		<h2 className="counter stat score">Score: {this.state.score}</h2>
 	      
 	      <div className="container">
-	        {this.renderHoles()}
+	        	<div className="container-1">
+	        		{this.renderHoles("fourth", "fifth", "sixth")}
+	        	</div>
+	        	<div className="container-2">
+	        		{this.renderHoles("first", "second", "third")}
+	        	</div>
 	      </div>
 	    </div>
     );

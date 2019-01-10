@@ -101,7 +101,7 @@ class Start extends Component {
       		Sound: {this.state.sound}
       	</h2>
       	<h2 className="stat score">
-      		HightScore: {this.state.hightScore}
+      		Highscore: {this.state.hightScore}
       	</h2>
 
       	<h1>Whack a friend!</h1> 
